@@ -1,3 +1,4 @@
+#include "Ball.h"
 #include <raylib.h>
 
 int main()
@@ -10,10 +11,17 @@ int main()
     constexpr int targetFPS{60};
     SetTargetFPS(targetFPS);
 
+    Ball ball{};
+    ball.setInitialPosition(Vector2{screenW / 2.0f, screenH / 2.0f});
+
     while (!WindowShouldClose())
     {
+        constexpr float delta{1.0f / targetFPS};
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
+
+        ball.draw(delta);
 
         DrawFPS(0, 0);
         EndDrawing();
