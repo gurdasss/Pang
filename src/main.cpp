@@ -26,6 +26,9 @@ int main()
         else if (IsKeyDown(KEY_RIGHT))
             player.updateX(playerMoveSpeed * delta);
 
+        if (IsKeyPressed(KEY_SPACE))
+            player.shootLaser();
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
