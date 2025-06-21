@@ -8,14 +8,16 @@
 class Ball
 {
 public:
-    Ball() { m_ball.setTint(DARKGRAY); }
-
-    void setInitialPosition(const Vector2 &position) { m_ball.setPosition(position); }
+    Ball(const Vector2 &initialPosition)
+        : m_ball{initialPosition, 20.0f}
+    {
+        m_ball.setTint(DARKGRAY);
+    }
 
     void draw(float delta);
 
 private:
-    Circle2D m_ball{Vector2{}, 20.0f};
+    Circle2D m_ball{};
     Vector2 m_velocity{500, 0};
     Vector2 m_acceleration{0, 9.8f * 100};
 
